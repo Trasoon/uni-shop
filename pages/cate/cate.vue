@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<my-search></my-search>
 		<view class="scrool-view-container">
 			<!-- 左侧滑动区域 -->
 			<scroll-view class="left-scrool-view" scroll-y="true" :style="{height: wh + 'px'}">
@@ -47,9 +48,21 @@
 				scrollTop:0,//切换一级分类时使滚动条置顶
 			};
 		},
+		props:{
+			//背景颜色
+			bgcolor:{
+				type: String,
+				default:'#05ecca',
+			},
+			//圆角尺寸
+			radius:{
+				type:Number,
+				default:18 ,
+			}
+		},
 		mounted(){
 			const info = uni.getSystemInfoSync()
-			this.wh = info.windowHeight
+			this.wh = info.windowHeight - 50//分类页面的搜索框占50px，防止下滑出现bug
 			this.getCateList()
 		},
 		methods:{
@@ -67,6 +80,11 @@
 				this.cateLevel2 = this.cateList[index].children
 				//二级分类区域置顶
 				this.scrollTop = this.scrollTop === 0 ? 1:0
+			},
+			//点击搜索栏跳转到搜索页面
+			toSearch(a){
+				console.log('tiaozhuan')
+				console.log(a)
 			}
 		}
 	}

@@ -1,5 +1,9 @@
 <template>
 	<view>
+		<!-- 搜索框区域 -->
+		<view class="search-box">
+			<my-search></my-search>
+		</view>
 		<!-- 轮播图区域 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item v-for="item in swiperList" :key="item.goods_id">
@@ -130,5 +134,11 @@ swiper{
 }
 .right-image-item{
 	margin: 10rpx;
+}
+//搜索框组件置顶且不会被覆盖
+.search-box{
+	position: sticky;
+	top: 0;
+	z-index: 999;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
 	<view>
 		goods_list
+		传过来的参数是：{{goodsName}}
 	</view>
 </template>
 
@@ -8,8 +9,11 @@
 	export default {
 		data() {
 			return {
-				
+				goodsName:''
 			};
+		},
+		onLoad(options){
+			this.goodsName = options.query
 		}
 	}
 </script>
