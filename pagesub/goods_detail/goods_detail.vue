@@ -14,7 +14,6 @@
 		},
 		onLoad(options){
 			this.goodsId = options.goods_id
-			console.log(this.goodsId)
 		}
 	}
 </script>
