@@ -43,7 +43,9 @@
 </template>
 
 <script>
+	import badgeMix from '@/mixin/tabbar_badge.js'
 	export default {
+		mixins:[badgeMix],
 		data() {
 			return {
 				//轮播图的数据列表
