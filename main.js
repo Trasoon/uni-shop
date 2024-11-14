@@ -15,6 +15,12 @@ $http.beforeRequest = function(options){
 	uni.showLoading({
 		title:'数据加载中...'
 	})
+	// 若请求的接口需要权限，那么就在header中添加Authorization
+	if(options.url.indexOf('/my/') !== -1){
+		options.header = {
+			Authorization : store.state.moduleUser.token,
+		}
+	}
 }
 //配置请求响应拦截器
 $http.afterRequest = function(){
